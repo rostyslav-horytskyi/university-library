@@ -17,7 +17,7 @@ const Header = ({ session }: { session: Session }) => {
         <Image src={"/icons/logo.svg"} alt={"logo"} width={40} height={40} />
       </Link>
 
-      <ul className={"flex flxe-row items-center gap-8"}>
+      <ul className={"flxe-row flex items-center gap-8"}>
         <li>
           <Link
             href={"/library"}

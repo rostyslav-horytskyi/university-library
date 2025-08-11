@@ -7,7 +7,7 @@ const Home = () => (
     <BookOverview {...sampleBooks[0]} />
     <BookList
       title={"Latest Books"}
-      books={sampleBooks}
+      books={sampleBooks as unknown as Book[]}
       containerClassName={"mt-28"}
     />
   </>
