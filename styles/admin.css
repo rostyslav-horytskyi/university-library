@@ -1,29 +1,58 @@
-@import 'tailwindcss';
+/* Tailwind v4 import */
+@import "tailwindcss";
 
+/* ---- Theme (v4) ----
+   These variables make your custom utilities like bg-light-300, text-dark-200, font-ibm-plex-sans, and xs:*
+   work in v4. Swap the right-hand sides with your real colors/fonts/breakpoints.
+*/
+@theme {
+    /* Keep your custom xs: breakpoint */
+    --breakpoint-xs: 480px;
+
+    /* Font family used by `font-ibm-plex-sans` */
+    --font-ibm-plex-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    /* Color aliases (temporary) — map to your real design tokens */
+    --color-primary-admin: var(--color-indigo-600);
+
+    --color-light-300: var(--color-zinc-100);
+    --color-light-400: var(--color-zinc-200);
+    --color-light-500: var(--color-zinc-500);
+    --color-light-600: var(--color-zinc-50);
+    --color-light-800: var(--color-zinc-800);
+
+    --color-dark-200: var(--color-zinc-600);
+    --color-dark-400: var(--color-zinc-800);
+}
+
+/* ---- Components (v4) ---- */
 @layer components {
     .admin-container {
         @apply flex w-[calc(100%-264px)] flex-1 flex-col bg-light-300 p-5 xs:p-10;
     }
 
     .back-btn {
-        @apply mb-10 w-fit border border-light-300 bg-white text-xs font-medium text-dark-200 hover:bg-light-300 !important;
+        @apply mb-10! w-fit! border! border-light-300! bg-white! text-xs! font-medium! text-dark-200! hover:bg-light-300!;
     }
 
     /* Confirmation Dialog */
     .confirm-trigger {
-        @apply font-semibold text-sm shadow-none hover:bg-opacity-70 w-full !important;
+        /* bg-opacity-* removed in v4 → use opacity utility on hover */
+        @apply font-semibold! text-sm! shadow-none! hover:opacity-70! w-full!;
     }
 
     .confirm-approve {
-        @apply bg-green-100 text-green-800 hover:bg-green-100/70 !important;
+        @apply bg-green-100! text-green-800! hover:bg-green-100/70!;
     }
 
     .confirm-reject {
-        @apply bg-red-100 text-red-800 hover:bg-red-100/70 !important;
+        @apply bg-red-100! text-red-800! hover:bg-red-100/70!;
     }
 
     .confirm-content {
-        @apply sm:max-w-md flex flex-col items-center justify-center p-6 !important;
+        @apply sm:max-w-md! flex! flex-col! items-center! justify-center! p-6!;
     }
 
     .confirm-illustration {
@@ -35,21 +64,21 @@
     }
 
     .confirm-btn {
-        @apply w-full min-h-14 rounded-xl font-bold text-base text-light-800 !important;
+        @apply w-full! min-h-14! rounded-xl! font-bold! text-base! text-light-800!;
     }
 
     /* Book Form */
     .book-form_input {
-        @apply min-h-14 border border-gray-100 bg-light-600 p-4 text-base font-semibold placeholder:font-normal placeholder:text-slate-500 !important;
+        @apply min-h-14! border! border-gray-100! bg-light-600! p-4! text-base! font-semibold! placeholder:font-normal! placeholder:text-slate-500!;
     }
 
     .book-form_btn {
-        @apply min-h-14 w-full bg-primary-admin hover:bg-primary-admin/95 !important;
+        @apply min-h-14! w-full! bg-primary-admin! hover:bg-primary-admin/95!;
     }
 
     /* Home Page */
     .view-btn {
-        @apply bg-light-300 rounded-md text-primary-admin font-semibold hover:bg-light-300/80 shadow-none !important;
+        @apply bg-light-300! rounded-md! text-primary-admin! font-semibold! hover:bg-light-300/80! shadow-none!;
     }
 
     .add-new-book_btn {
@@ -159,7 +188,8 @@
     }
 
     .admin-search_input {
-        @apply w-full border-0 shadow-none bg-transparent outline-none focus:outline-none focus:ring-0 focus:border-0 !important;
+        /* v4: use outline-hidden when you want no outline */
+        @apply w-full! border-0! shadow-none! bg-transparent! outline-hidden! focus:outline-hidden! focus:ring-0! focus:border-0!;
     }
 
     /* Sidebar */
